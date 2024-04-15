@@ -1,0 +1,58 @@
+{
+  "name": "html-short-comment",
+  "displayName": "HTML Short Comment",
+  "description": "A Visual Studio Code Extension to Provide Short Comments for HTML, SVG, XML and Astro Files",
+  "keywords": [
+    "comment",
+    "astro",
+    "html",
+    "svg",
+    "xml"
+  ],
+  "publisher": "SAIDREXXX",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.88.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onLanguage:astro",
+    "onLanguage:html",
+    "onLanguage:svg",
+    "onLanguage:xml"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "HTML Short Comment",
+      "properties": {
+        "htmlshortcomment.defineCharacterToReplace": {
+          "type": "string",
+          "default": "//",
+          "description": "Characters to be used to identify the replacement of the text by a comment"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.88.0",
+    "@types/mocha": "^10.0.6",
+    "@types/node": "18.x",
+    "@typescript-eslint/eslint-plugin": "^6.19.1",
+    "@typescript-eslint/parser": "^6.19.1",
+    "eslint": "^8.56.0",
+    "typescript": "^5.3.3",
+    "@vscode/test-cli": "^0.0.4",
+    "@vscode/test-electron": "^2.3.9"
+  }
+}
