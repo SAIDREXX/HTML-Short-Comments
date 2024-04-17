@@ -15,6 +15,12 @@
 
 HTML Short Comments is an extension for Visual Studio Code that allows to improve productivity when commenting lines of code in files with comment syntax: `<!-- This is a comment -->`
 
+<div align="center">
+
+  ![Demo GIF](demo.gif)
+  
+</div>
+
 ## Configuration ⚙️
 
 This extension can be configured in the User preferences.
