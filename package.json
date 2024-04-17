@@ -3,7 +3,7 @@
   "displayName": "HTML Short Comment",
   "icon": "icon.png",
   "description": "A Visual Studio Code Extension to Provide Short Comments for HTML, SVG, XML and Astro Files",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "keywords": [
     "comment",
     "astro",
