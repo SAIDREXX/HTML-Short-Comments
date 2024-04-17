@@ -1,7 +1,9 @@
 {
   "name": "html-short-comment",
   "displayName": "HTML Short Comment",
+  "icon": "icon.png",
   "description": "A Visual Studio Code Extension to Provide Short Comments for HTML, SVG, XML and Astro Files",
+  "version": "0.0.1",
   "keywords": [
     "comment",
     "astro",
@@ -10,12 +12,22 @@
     "xml"
   ],
   "publisher": "SAIDREXXX",
-  "version": "0.0.1",
+  "author": {
+    "name": "SAIDREXXX"
+  },
+  "license": "MIT",
+  "bugs": "https://github.com/SAIDREXX/HTML-Short-Comments/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SAIDREXX/HTML-Short-Comments.git"
+  },
   "engines": {
     "vscode": "^1.88.0"
   },
   "categories": [
-    "Other"
+    "Other",
+    "Snippets",
+    "Formatters"
   ],
   "activationEvents": [
     "onLanguage:astro",
@@ -37,7 +49,7 @@
     }
   },
   "scripts": {
-    "vscode:prepublish": "npm run package",
+    "package": "npm run compile && vsce package",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
     "pretest": "npm run compile && npm run lint",
@@ -45,14 +57,17 @@
     "test": "vscode-test"
   },
   "devDependencies": {
-    "@types/vscode": "^1.88.0",
     "@types/mocha": "^10.0.6",
     "@types/node": "18.x",
+    "@types/vscode": "^1.88.0",
     "@typescript-eslint/eslint-plugin": "^6.19.1",
     "@typescript-eslint/parser": "^6.19.1",
-    "eslint": "^8.56.0",
-    "typescript": "^5.3.3",
     "@vscode/test-cli": "^0.0.4",
-    "@vscode/test-electron": "^2.3.9"
+    "@vscode/test-electron": "^2.3.9",
+    "eslint": "^8.56.0",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@vscode/vsce": "^2.25.0"
   }
 }

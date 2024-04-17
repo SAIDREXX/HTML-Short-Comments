@@ -4,7 +4,6 @@ import * as vscode from 'vscode';
 // Esta función se llama cuando se activa tu extensión
 export function activate(context: vscode.ExtensionContext) {
 	vscode.workspace.onDidChangeTextDocument((event) => {
-		const editor = vscode.window.activeTextEditor;
 		const document = event.document;
 
 		// Check if the document is a code document
@@ -18,18 +17,35 @@ export function activate(context: vscode.ExtensionContext) {
 
 			// Get the last line of the document
 			// Obtén la última línea del documento
-			const lastLine = document.lineAt(document.lineCount - 1);
+			const actualLine = event.contentChanges[0]?.range.start.line;
+			if (actualLine === undefined){
+				return;// If there's no line, exit the function
+			}  
+
+			const lastLine = document.lineAt(actualLine);
 			const lastLineText = lastLine.text;
+
+			// If the lastLineText contains an HTML tag, remove it and save it in a new const
+			// Si lastLineText contiene una etiqueta HTML, elimínala y guárdala en una nueva constante
+			let htmlTag = '';
+			let lastLineTextClean = '';
+			const match = lastLineText.match(/<[^>]*>/);
+			if (match) {
+				htmlTag = match[0];
+				lastLineTextClean = lastLineText.replace(htmlTag, '').trim();
+			} else {
+				lastLineTextClean = lastLineText;
+			}
 
 			// If the last line ends with the character, replace it with a comment
 			// Si la última línea termina con el carácter, reemplázalo con un comentario
-			if (lastLineText.trim().endsWith(character)) {
-				const commentText = lastLineText.replace(character, '').trim();
+			if (lastLineTextClean.trim().endsWith(character)) {
+				const commentText = lastLineTextClean.replace(character, '').trim();
 				const edit = new vscode.WorkspaceEdit();
 				edit.replace(
 					document.uri,
 					lastLine.range,
-					`<!-- ${commentText} -->`
+					 `${htmlTag} <!-- ${commentText} -->`
 				);
 
 				// Apply the edit to the workspace
@@ -53,5 +69,6 @@ function isCodeDocument(document: vscode.TextDocument) {
 		"svg",
 		"xml",
 	];
+	
 	return codeLanguages.includes(document.languageId);
 }
