@@ -2,8 +2,8 @@
   "name": "html-short-comment",
   "displayName": "HTML Short Comment",
   "icon": "icon.png",
-  "description": "A Visual Studio Code Extension to Provide Short Comments for HTML, SVG, XML and Astro Files",
-  "version": "1.0.0",
+  "description": "A Visual Studio Code Extension to Provide Short Comments for HTML, SVG, XML and Astro Files (Similar Languages Are Supported Too)",
+  "version": "1.0.2",
   "keywords": [
     "comment",
     "astro",
@@ -33,7 +33,9 @@
     "onLanguage:astro",
     "onLanguage:html",
     "onLanguage:svg",
-    "onLanguage:xml"
+    "onLanguage:xhtml",
+    "onLanguage:xml",
+    "onLanguage:xsl"
   ],
   "main": "./out/extension.js",
   "contributes": {

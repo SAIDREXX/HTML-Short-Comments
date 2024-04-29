@@ -41,4 +41,6 @@ The characters `%%` are defined to end the comment.
 - Astro 🚀
 - HTML 🌐
 - SVG 🖼️
+- XHTML 📃
 - XML 🏷️
+- XSL 📰

@@ -67,7 +67,9 @@ function isCodeDocument(document: vscode.TextDocument) {
 		"astro",
 		"html",
 		"svg",
+		"xhtml",
 		"xml",
+		"xsl"
 	];
 	
 	return codeLanguages.includes(document.languageId);
